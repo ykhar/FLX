@@ -20,7 +20,6 @@
     }
    .flex-2-col {    
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
    }
@@ -93,7 +92,7 @@
     }
     .tm-banner-inner {
         margin: 0px;  
-        border: 1px solid ligtgrey;
+        border: 1px solid lightgrey;
     }
     .box.box-work {
          padding: 8px;
