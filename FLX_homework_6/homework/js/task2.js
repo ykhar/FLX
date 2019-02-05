@@ -10,11 +10,11 @@ if (amount < 9999999 && amount > 0 && discount < 99 && discount > 0) {
 	savedMoney = +savedMoney.toFixed(2);
 	priceWithDiscount = +priceWithDiscount.toFixed(2);
 
-	alert(`
-	Price without discount: ${amount} \n
-	Discount: ${discount}% \n
-	Price with discount: ${priceWithDiscount} \n
-	Saved money: ${savedMoney} \n`
+	alert(
+`Price without discount: ${amount} \n
+Discount: ${discount}% \n
+Price with discount: ${priceWithDiscount} \n
+Saved money: ${savedMoney} \n`
 	);
 } else {
   alert('Invalid input data');
