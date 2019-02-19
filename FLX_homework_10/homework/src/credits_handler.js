@@ -43,7 +43,7 @@ function userCard (n) {
       const taxes = 0.005;
       const amountWithTax = amount * taxes + amount;
 
-      if(amountWithTax > obj.balance && amountWithTax > obj.transactionLimit) {
+      if(amountWithTax > obj.balance || amountWithTax > obj.transactionLimit) {
         console.log('Credits exceeded balance or transaction limit')
       } else {
         this.takeCredits(amountWithTax);
