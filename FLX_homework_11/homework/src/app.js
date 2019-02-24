@@ -52,54 +52,54 @@ addButton.addEventListener('click', function() {
 
   }
   //drag&drop
-    let dragged = null;
+  let dragged = null;
 
-    function handleDragStart(e) {
-      this.style.opacity = '0.4';
-      dragged = this;
-      e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/html', this.innerHTML);
+  function handleDragStart(e) {
+    e.style.opacity = '0.4';
+    dragged = this;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
+  }
+  
+  function handleDragOver(e) {
+    if (e.preventDefault) {
+      e.preventDefault();
     }
-    
-    function handleDragOver(e) {
-      if (e.preventDefault) {
-        e.preventDefault();
-      }
-      e.dataTransfer.dropEffect = 'move';  
-      return false;
+    e.dataTransfer.dropEffect = 'move';  
+    return false;
+  }
+  
+  function handleDragEnter(e) {
+    this.classList.add('over');
+  }
+  
+  function handleDragLeave(e) {
+    this.classList.remove('over'); 
+  }
+  
+  function handleDrop(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation(); 
     }
-    
-    function handleDragEnter(e) {
-      this.classList.add('over');
+    if (dragged !== this) {
+      dragged.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
     }
-    
-    function handleDragLeave(e) {
-      this.classList.remove('over'); 
-    }
-    
-    function handleDrop(e) {
-      if (e.stopPropagation) {
-        e.stopPropagation(); 
-      }
-      if (dragged !== this) {
-        dragged.innerHTML = this.innerHTML;
-        this.innerHTML = e.dataTransfer.getData('text/html');
-      }
-      return false;
-    }
+    return false;
+  }
 
-    function handleDragEnd(e) {    
-      [].forEach.call(d, function (d) {
-        d.classList.remove('over');
-      });
-    }
-    let d = document.querySelectorAll('#list-container .list');
-    [].forEach.call(d, function(d) {
-      d.addEventListener('dragstart', handleDragStart, false);
-      d.addEventListener('dragenter', handleDragEnter, false);
-      d.addEventListener('dragover', handleDragOver, false);
-      d.addEventListener('dragleave', handleDragLeave, false);
-      d.addEventListener('drop', handleDrop, false);
-      d.addEventListener('dragend', handleDragEnd, false);
+  function handleDragEnd(e) {    
+    [].forEach.call(d, function (d) {
+      d.classList.remove('over');
     });
+  }
+  let d = document.querySelectorAll('#list-container .list');
+  [].forEach.call(d, function(d) {
+    d.addEventListener('dragstart', handleDragStart, false);
+    d.addEventListener('dragenter', handleDragEnter, false);
+    d.addEventListener('dragover', handleDragOver, false);
+    d.addEventListener('dragleave', handleDragLeave, false);
+    d.addEventListener('drop', handleDrop, false);
+    d.addEventListener('dragend', handleDragEnd, false);
+  });
 });
