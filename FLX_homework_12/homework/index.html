@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 12 - Simple TODO List</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <div id="root">
+    <div id="main">
+      <h1>Simple TODO Application</h1>
+      <button id="addBtn" class="btn" onclick="show('add')"> Add new task</button>
+      <p id="notification">TODO is empty</p>
+      <ul id="task_container">
+        <li id="task_list">
+          <img onclick="checkIcon(this)" src="assets/img/todo-s.png" alt="checkbox" id="uncheked">
+          <span id="task" onclick="modify(this)"></span>
+          <img onclick="deleteIcon(this)" src="assets/img/remove-s.jpg" alt="remove" id="remove">
+        </li>
+      </ul>
+    </div>
+    <div id="add">
+      <h1>Add task</h1>
+      <input type="text" id="input">
+      <div class="container">  
+        <button class="btn cancel" onclick="show('main')">Cancel</button>
+        <button class="btn save" onclick="addTask()">Save changes</button>
+      </div>
+    </div>
+    <div id="modify">
+      <h1>Modify item</h1>
+      <input type="text" id="input">
+      <div class="container">
+        <button class="btn cancel" onclick="show('main')">Cancel</button>
+        <button class="btn save" onclick="modify()">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/app.js"></script>
+</body>
+</html>

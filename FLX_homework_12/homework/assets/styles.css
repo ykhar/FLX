@@ -1,0 +1,33 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+p, button {
+  font-size: 20px;
+}
+button {
+  border-radius: 15px;
+  background-color: lightgrey;
+  margin-top: 15px;
+  outline: none;
+  padding: 0 20px;
+}
+#add,
+#modify {
+  display: none;
+}
+input[type='text'] {
+  width: 300px;
+  height: 22px;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+}
+li {
+  list-style: none;
+  align-items: center;
+  display: flex;
+}
+ul {
+  display: none;
+}
